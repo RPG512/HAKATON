@@ -1,8 +1,6 @@
 ﻿using HAKATON.Models;
-using HAKATON.Models.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using My_home_server_Web_Site.Models;
 
 namespace HAKATON.Controllers
 {

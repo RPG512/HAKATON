@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HAKATON.Models.Account
+namespace HAKATON.Models
 {
 	public class RegisterViewModel
 	{

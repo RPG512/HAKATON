@@ -2,7 +2,8 @@
 @inject SignInManager<UserViewModel> signInManager;
 @inject UserManager<UserViewModel> userManager;
 
-<section class="nabar-nav">
+<div class="navbar-nav">
+	<ul class="navbar-nav flex-grow-1">
 	@{
 		if(signInManager.IsSignedIn(User))
 		{
@@ -25,4 +26,4 @@
 			</li>
 		}
 	}
-</section>
+	</ul>
