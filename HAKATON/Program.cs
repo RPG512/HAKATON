@@ -1,3 +1,8 @@
+using HAKATON.DataContext;
+using HAKATON.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace HAKATON
 {
     public class Program
@@ -5,9 +10,24 @@ namespace HAKATON
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+			builder.Services.AddDbContext<AppDBContext>(options =>
+				options.UseSqlServer(builder.Configuration.GetConnectionString("AppDBContext") ?? throw new InvalidOperationException("Connection string 'AppDBContext' not found.")));
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+			builder.Services.AddIdentity<UserViewModel, IdentityRole>(
+					options =>
+					{
+						options.Password.RequiredUniqueChars = 0;
+						options.Password.RequireNonAlphanumeric = false;
+						options.Password.RequireUppercase = false;
+						options.Password.RequireLowercase = false;
+						options.Password.RequiredLength = 8;
+					}
+				)
+				.AddEntityFrameworkStores<AppDBContext>()
+				.AddDefaultTokenProviders();
+
+			// Add services to the container.
+			builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 

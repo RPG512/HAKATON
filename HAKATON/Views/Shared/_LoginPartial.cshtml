@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserViewModel> signInManager;
+@inject UserManager<UserViewModel> userManager;
+
+<section class="nabar-nav">
+	@{
+		if(signInManager.IsSignedIn(User))
+		{
+			<button class="nav-item dropdown btn btn-toolbar">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					@User.Identity!.Name - Действия
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Выйти</a></li>
+				</ul>
+			</button>
+		}
+		else
+		{
+			<li class="nav-item">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+			</li>
+		}
+	}
+</section>
