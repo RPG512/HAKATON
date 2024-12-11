@@ -1,9 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Личный кабинет";
+﻿@model UserViewModel
+@{
+	ViewData["Title"] = "Личный кабинет";
 }
 
 <div class="row d-flex align-items-center justify-content-center">
 	<div class="col-md-10 card p-3">
 		<h2 class="text-center text-info">@ViewData["Title"]</h2>
+		<form asp-action="Index" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="mb-1">
+				<label asp-for="Name"></label>
+				<input asp-for="Name" class="form-control" />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="Email"></label>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="UserName"></label>
+				<input asp-for="UserName" class="form-control" />
+				<span asp-validation-for="UserName" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="DateOfBirth"></label>
+				<input asp-for="DateOfBirth" class="form-control" />
+				<span asp-validation-for="DateOfBirth" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="PhoneNumber">Номер телефона</label>
+				<input asp-for="PhoneNumber" class="form-control" />
+				<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="Contacts"></label>
+				<input asp-for="Contacts" class="form-control" />
+				<span asp-validation-for="Contacts" class="text-danger"></span>
+			</div>
+			<div class="row">
+				<div class="col-8">
+					<a asp-action="Delete" class="text-danger float-start mt-2">Удалить аккаунт.</a>
+				</div>
+				<div class="col-4">
+					<input type="submit" value="Сохранить" class="btn btn-primary btn-sm float-end" />
+				</div>
+			</div>
+		</form>
 	</div>
 </div>

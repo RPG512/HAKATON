@@ -27,11 +27,6 @@ namespace HAKATON
 				.AddEntityFrameworkStores<AppDBContext>()
 				.AddDefaultTokenProviders();
 
-            builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            });
-
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
 
