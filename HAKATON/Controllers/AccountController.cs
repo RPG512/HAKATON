@@ -28,8 +28,10 @@ namespace HAKATON.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				UserViewModel user = _userManager.Users.First(u => u.UserName == model.UserName);
-
+				UserViewModel user = _userManager.Users.First(u => u.Email == model.Email);
+				bool logout = false;
+				if (user.UserName != model.UserName)
+					logout = true;
 				user.Name = model.Name;
 				user.UserName = model.UserName;
 				user.Email = model.Email;
@@ -43,6 +45,8 @@ namespace HAKATON.Controllers
 
 				if (result.Succeeded)
 				{
+					if(logout)
+						await _signInManager.SignOutAsync();
 					return RedirectToAction("Index", "Home");
 				}
 				else

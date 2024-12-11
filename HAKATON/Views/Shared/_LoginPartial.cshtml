@@ -13,7 +13,7 @@
 				</a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" asp-action="User" asp-controller="Account" asp-route-pid="@userManager.Users.First(u => u.UserName == User.Identity!.Name).PublicId">Моя страница</a></li>
-						<li><a class="dropdown-item" asp-action="Index" asp-controller="Account" asp-route-userName="@User.Identity.Name">Личный кабинет</a></li>
+						<li><a class="dropdown-item" asp-action="Index" asp-controller="Account" asp-route-userName="@User.Identity!.Name">Личный кабинет</a></li>
 					<li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Выйти</a></li>
 				</ul>
 			</button>
