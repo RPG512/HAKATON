@@ -1,3 +1,8 @@
-﻿@{
-	ViewData["Title"] = "Страница пользователя" + null;
+﻿@model UserViewModel
+@{
+	ViewData["Title"] = "Страница пользователя " + Model.Name;
 }
+@Model.Name <br />
+@Model.DateOfBirth <br />
+@Model.PhoneNumber <br />
+@Model.EducationalInstitutionOrCompany

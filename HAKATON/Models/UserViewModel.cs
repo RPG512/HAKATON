@@ -7,7 +7,14 @@ namespace HAKATON.Models
 	{
 		public Guid PublicId { get; set; } = Guid.NewGuid();
 		[Required]
+		[Display(Name = "Имя")]
 		public string Name { get; set; } = null!;
+
+		[Display(Name = "Пол")]
+		public string? Gender { get; set; }
+
+		[Display(Name = "Учебное заведение/Компания")]
+		public string? EducationalInstitutionOrCompany { get; set; }
 
 		public int AvatarId { get; set; } = 0;
 

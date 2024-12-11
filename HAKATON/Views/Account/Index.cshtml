@@ -24,9 +24,23 @@
 				<span asp-validation-for="UserName" class="text-danger"></span>
 			</div>
 			<div class="mb-1">
+				<label asp-for="Gender"></label>
+				<input asp-for="Gender" type="hidden" name="Gender" value="">
+				<div id="account-gender">
+					<label class="radio-inline"><input asp-for="Gender" type="radio" name="Gender" value="m"> Мужской</label>
+					<label class="radio-inline"><input asp-for="Gender" type="radio" name="Gender" value="f"> Женский</label>
+				</div>
+				<span asp-validation-for="Gender" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
 				<label asp-for="DateOfBirth"></label>
 				<input asp-for="DateOfBirth" class="form-control" />
 				<span asp-validation-for="DateOfBirth" class="text-danger"></span>
+			</div>
+			<div class="mb-1">
+				<label asp-for="EducationalInstitutionOrCompany"></label>
+				<input asp-for="EducationalInstitutionOrCompany" class="form-control" />
+				<span asp-validation-for="EducationalInstitutionOrCompany" class="text-danger"></span>
 			</div>
 			<div class="mb-1">
 				<label asp-for="PhoneNumber">Номер телефона</label>

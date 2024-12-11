@@ -36,6 +36,8 @@ namespace HAKATON.Controllers
 				user.Contacts = model.Contacts;
 				user.PhoneNumber = model.PhoneNumber;
 				user.DateOfBirth = model.DateOfBirth;
+				user.Gender = model.Gender;
+				user.EducationalInstitutionOrCompany = model.EducationalInstitutionOrCompany;
 
 				var result = await _userManager.UpdateAsync(user);
 
